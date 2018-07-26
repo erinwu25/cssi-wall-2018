@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <title>CSSI Wall!</title>
-<h1>CSSI Wall</h1>
+<h1 id="text">CSSI Wall</h1>
 <form action="/" method="post">
-  <label><h3>Leave a message</h3></label>
+  <label><h3 id="text">Leave a message</h3></label>
   <p>
   <textarea name="message" rows="4" cols="50">
   </textarea>
   <p>
-  <label>Name</label>
-  <textarea name="username" rows="2" cols="25">
-    Anonymous
+  <label id="text">Name</label>
+  <textarea name="username" rows="1" cols="25">
+Anonymous
   </textarea>
   <p>
   <button>Post</button>
@@ -17,22 +17,32 @@
 
 <body>
 <style>
-  .messagebox {
-      width: 320;
-      height: auto;
-      padding-bottom: 10px;
-      border: 1px solid pink;
-      margin: 0;
 
+  body{
+    background-color: #ccccff;
   }
+
+  .messagebox {
+      width: auto;
+      height: auto;
+      padding-bottom: 5px;
+      border: 1px solid pink;
+      border-radius: 10px;
+      margin: 0;
+  }
+
+  #text{
+    color: white;
+  }
+
 </style>
 
 
   {% for post in posts %}
-  <div class="messagebox" style="border-color: pink; background-color: pink;">
-  <div class="post">{{post.message}}<p><i>Posted by {{post.username}}</i> at {{post.created_time}}</div>
+  <div class="messagebox" style="border-color: #fae2ff; background-color: #fae2ff;">
+  <div class="post" style="padding: 5px; padding-bottom: 5px">{{post.message}}<p><div><i>Posted by {{post.username}}</i> at {{post.created_time}}</div></div>
   </div>
-  <p>
+  <br>
   {% endfor %}
 
 </body>
